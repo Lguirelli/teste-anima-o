@@ -1,0 +1,15 @@
+import {test} from 'node:test';
+import assert from 'node:assert/strict';
+import {readFile} from 'node:fs/promises';
+import {resolveOptions,keyframes,progress,registerPreset} from '../lib/motion.js';
+const m=JSON.parse(await readFile(new URL('../manifest.json',import.meta.url),'utf8'));
+test('manifest: ids únicos, evidência rastreável e opções válidas',()=>{assert.equal(new Set(m.presets.map(p=>p.id)).size,m.presets.length);for(const p of m.presets){resolveOptions(p.options);assert.match(p.evidence.url,/^https:\/\/www.monks.com\//);assert.ok(p.evidence.section&&p.evidence.interaction&&p.evidence.limits);}});
+test('todas as capturas referenciadas existem',async()=>{for(const p of m.presets)assert.ok((await readFile(new URL('../'+p.evidence.screenshot,import.meta.url))).length>1000);});
+test('mobile reduz amplitude sem alterar configuração de origem',()=>{const p=m.presets[0].options;const before=JSON.stringify(p);assert.deepEqual(resolveOptions(p,{},390).translate,[0,18]);assert.deepEqual(resolveOptions(p,{},960).translate,[0,24]);assert.deepEqual(resolveOptions(p,{},1200).translate,[0,30]);assert.equal(JSON.stringify(p),before);});
+test('parallax mobile explicitamente neutralizado',()=>{const p=m.presets.find(p=>p.id==='media-drift');assert.deepEqual(resolveOptions(p.options,{},390).translate,[0,0]);assert.equal(resolveOptions(p.options,{},390).scale,1);});
+test('intervalos de breakpoint inclusive',()=>{assert.equal(resolveOptions({}, {},640).duration,500);assert.equal(resolveOptions({}, {},641).duration,700);});
+test('opções inválidas rejeitadas',()=>{for(const o of [{duration:-1},{opacity:2},{scale:0},{translate:[0,'20']},{trigger:'magic'},{stagger:NaN}])assert.throws(()=>resolveOptions({},o));});
+test('zero é configuração válida de duration/delay/opacity',()=>{const o=resolveOptions({}, {duration:0,delay:0,opacity:0},1200);assert.equal(o.duration,0);assert.equal(o.opacity,0);});
+test('scroll limitado e previsível',()=>{assert.equal(progress(2000,300,800),0);assert.equal(progress(-1000,300,800),1);assert.equal(progress(250,300,800),.5);});
+test('máscara termina visível; entrada não desloca layout',()=>{const frames=keyframes('mask',resolveOptions());assert.equal(frames[1].opacity,1);assert.equal(frames[1].clipPath,'inset(0% 0 0 0)');assert.ok(!('height'in frames[0]));});
+test('extensão aceita preset novo e impede colisão',()=>{const manifest={presets:[]};registerPreset(manifest,{id:'sample',kind:'reveal',options:{duration:200}});assert.equal(manifest.presets.length,1);assert.throws(()=>registerPreset(manifest,{id:'sample'}));});

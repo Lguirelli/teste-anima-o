@@ -1,0 +1,483 @@
+{
+  "schemaVersion": "1.0.0",
+  "name": "Web Motion Library",
+  "version": "1.0.0",
+  "language": "pt-BR",
+  "created": "2026-10-29",
+  "reference": {
+    "url": "https://www.monks.com/pt?utm_source=chatgpt.com",
+    "method": "Inspeção visual e DOM no navegador integrado; scroll, ponteiro e cliques. Capturas desktop e viewport mobile 390x844.",
+    "limits": [
+      "Sem trace temporal, FPS ou perfil de performance.",
+      "Sem identificação comprovada de GSAP, Lenis ou outro motor.",
+      "Emulação de viewport não equivale a dispositivo físico/touch.",
+      "Principais tipos amostrados: home, solução, cases, case, institucional e contato; não é inventário integral do domínio.",
+      "Screenshots são evidência documental, não assets da biblioteca."
+    ]
+  },
+  "presets": [
+    {
+      "id": "word-rise",
+      "name": "Palavras em cena",
+      "category": "Texto",
+      "kind": "words",
+      "evidence": {
+        "status": "observado",
+        "url": "https://www.monks.com/pt",
+        "section": "Hero e chamada “O que podemos fazer por você?”",
+        "interaction": "Carregar; rolar até a chamada",
+        "observed": "Palavras separadas no DOM; opacidade 0 e translateY(30px) antes da entrada, opacidade 1 depois.",
+        "screenshot": "evidence/14-mobile-home.png",
+        "limits": "Deslocamento de 30 px observado em uma amostra; duration/easing/stagger propostos."
+      },
+      "options": {
+        "duration": 800,
+        "delay": 0,
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "translate": [
+          0,
+          30
+        ],
+        "scale": 1,
+        "opacity": 0,
+        "stagger": 60,
+        "trigger": "scroll",
+        "once": true,
+        "responsive": {
+          "mobile": {
+            "maxWidth": 640,
+            "translate": [
+              0,
+              18
+            ],
+            "duration": 500
+          },
+          "tablet": {
+            "maxWidth": 960,
+            "translate": [
+              0,
+              24
+            ]
+          }
+        }
+      },
+      "parameterProvenance": "Todos os parâmetros são decisões originais, salvo os valores pontuais explicitados em evidence."
+    },
+    {
+      "id": "text-progress",
+      "name": "Leitura progressiva",
+      "category": "Scroll",
+      "kind": "scrub",
+      "evidence": {
+        "status": "interpretação",
+        "url": "https://www.monks.com/pt/solutions/marcas-em-tempo-real",
+        "section": "Bloco “Maximizamos o valor…”",
+        "interaction": "Rolar um viewport; continuar cerca de um terço",
+        "observed": "Captura imediata mostra título parcialmente revelado; estado posterior fica legível. Scroll versus passagem do tempo não foi isolado.",
+        "screenshot": "evidence/05-text-reveal-after.png",
+        "limits": "O scrub deste preset é uma interpretação; não foi provado como mecanismo do site."
+      },
+      "options": {
+        "duration": 700,
+        "delay": 0,
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "translate": [
+          0,
+          30
+        ],
+        "scale": 1,
+        "opacity": 0.18,
+        "stagger": 65,
+        "trigger": "scroll",
+        "once": true,
+        "responsive": {
+          "mobile": {
+            "maxWidth": 640,
+            "translate": [
+              0,
+              18
+            ],
+            "duration": 500
+          },
+          "tablet": {
+            "maxWidth": 960,
+            "translate": [
+              0,
+              24
+            ]
+          }
+        }
+      },
+      "parameterProvenance": "Todos os parâmetros são decisões originais, salvo os valores pontuais explicitados em evidence."
+    },
+    {
+      "id": "cta-swap",
+      "name": "Seta que troca de lado",
+      "category": "Interação",
+      "kind": "swap",
+      "evidence": {
+        "status": "observado",
+        "url": "https://www.monks.com/pt",
+        "section": "Botão “Vamos nos conectar”",
+        "interaction": "Posicionar ponteiro sobre círculo da seta",
+        "observed": "Seta vai para a esquerda; rótulo desloca à direita. Estado inline do rótulo: translateX(70px) no desktop desta sessão.",
+        "screenshot": "evidence/16-cta-pointer.png",
+        "limits": "70 px observados na referência; biblioteca mede seus próprios elementos para adaptar o efeito."
+      },
+      "options": {
+        "duration": 420,
+        "delay": 0,
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "translate": [
+          0,
+          0
+        ],
+        "scale": 1,
+        "opacity": 0,
+        "stagger": 65,
+        "trigger": "hover",
+        "once": true,
+        "responsive": {
+          "mobile": {
+            "maxWidth": 640,
+            "translate": [
+              0,
+              18
+            ],
+            "duration": 500
+          },
+          "tablet": {
+            "maxWidth": 960,
+            "translate": [
+              0,
+              24
+            ]
+          }
+        }
+      },
+      "parameterProvenance": "Todos os parâmetros são decisões originais, salvo os valores pontuais explicitados em evidence."
+    },
+    {
+      "id": "menu-reveal",
+      "name": "Painel de navegação",
+      "category": "Navegação",
+      "kind": "reveal",
+      "evidence": {
+        "status": "observado",
+        "url": "https://www.monks.com/pt",
+        "section": "Menu Soluções; menu mobile em /conectar",
+        "interaction": "Abrir/fechar menu desktop; repetir a 390 × 844",
+        "observed": "Desktop: dropdown escuro; mobile: painel escuro de tela inteira. Capturada abertura intermediária do painel mobile.",
+        "screenshot": "evidence/13-mobile-menu.png",
+        "limits": "Transform e duração propostos. Biblioteca fornece entrada; sem copiar a geometria do painel do site."
+      },
+      "options": {
+        "duration": 480,
+        "delay": 0,
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "translate": [
+          0,
+          24
+        ],
+        "scale": 1,
+        "opacity": 0,
+        "stagger": 65,
+        "trigger": "manual",
+        "once": true,
+        "responsive": {
+          "mobile": {
+            "maxWidth": 640,
+            "translate": [
+              0,
+              18
+            ],
+            "duration": 500
+          },
+          "tablet": {
+            "maxWidth": 960,
+            "translate": [
+              0,
+              24
+            ]
+          }
+        }
+      },
+      "parameterProvenance": "Todos os parâmetros são decisões originais, salvo os valores pontuais explicitados em evidence."
+    },
+    {
+      "id": "overlay-enter",
+      "name": "Overlay de filtros",
+      "category": "Navegação",
+      "kind": "mask",
+      "evidence": {
+        "status": "observado",
+        "url": "https://www.monks.com/pt/cases",
+        "section": "Filtros",
+        "interaction": "Clicar Filtros e fechar no X",
+        "observed": "Painel claro ocupa viewport com lista de soluções e botão fechar.",
+        "screenshot": "evidence/07-filter-panel.png",
+        "limits": "Máscara vertical é reconstrução original; trajetória e tempo da referência não medidos."
+      },
+      "options": {
+        "duration": 550,
+        "delay": 0,
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "translate": [
+          0,
+          0
+        ],
+        "scale": 1,
+        "opacity": 0,
+        "stagger": 65,
+        "trigger": "manual",
+        "once": true,
+        "responsive": {
+          "mobile": {
+            "maxWidth": 640,
+            "translate": [
+              0,
+              18
+            ],
+            "duration": 500
+          },
+          "tablet": {
+            "maxWidth": 960,
+            "translate": [
+              0,
+              24
+            ]
+          }
+        }
+      },
+      "parameterProvenance": "Todos os parâmetros são decisões originais, salvo os valores pontuais explicitados em evidence."
+    },
+    {
+      "id": "card-reveal",
+      "name": "Cartões em sequência",
+      "category": "Entrada",
+      "kind": "reveal",
+      "evidence": {
+        "status": "interpretação",
+        "url": "https://www.monks.com/pt",
+        "section": "Quatro áreas estratégicas",
+        "interaction": "Rolar da hero para os cartões; repetir em mobile",
+        "observed": "Desktop com quatro colunas e posições verticais alternadas; mobile em uma coluna. Stagger temporal não isolado.",
+        "screenshot": "evidence/02-solutions-scroll.png",
+        "limits": "Anexar a cada cartão e variar delay; composição alternada é layout, não evidência de parallax."
+      },
+      "options": {
+        "duration": 650,
+        "delay": 0,
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "translate": [
+          0,
+          40
+        ],
+        "scale": 1,
+        "opacity": 0,
+        "stagger": 90,
+        "trigger": "scroll",
+        "once": true,
+        "responsive": {
+          "mobile": {
+            "maxWidth": 640,
+            "translate": [
+              0,
+              18
+            ],
+            "duration": 500
+          },
+          "tablet": {
+            "maxWidth": 960,
+            "translate": [
+              0,
+              24
+            ]
+          }
+        }
+      },
+      "parameterProvenance": "Todos os parâmetros são decisões originais, salvo os valores pontuais explicitados em evidence."
+    },
+    {
+      "id": "image-mask",
+      "name": "Mídia por recorte",
+      "category": "Entrada",
+      "kind": "mask",
+      "evidence": {
+        "status": "interpretação",
+        "url": "https://www.monks.com/pt/solutions/marcas-em-tempo-real",
+        "section": "Destaque O Código Dove",
+        "interaction": "Rolar do texto até destaque",
+        "observed": "Imagem e texto entram no viewport. Não houve medição independente de máscara.",
+        "screenshot": "evidence/05-text-reveal-after.png",
+        "limits": "Máscara criada para reutilização, não confirmada no original."
+      },
+      "options": {
+        "duration": 900,
+        "delay": 0,
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "translate": [
+          0,
+          0
+        ],
+        "scale": 1.04,
+        "opacity": 0,
+        "stagger": 65,
+        "trigger": "scroll",
+        "once": true,
+        "responsive": {
+          "mobile": {
+            "maxWidth": 640,
+            "translate": [
+              0,
+              18
+            ],
+            "duration": 500
+          },
+          "tablet": {
+            "maxWidth": 960,
+            "translate": [
+              0,
+              24
+            ]
+          }
+        }
+      },
+      "parameterProvenance": "Todos os parâmetros são decisões originais, salvo os valores pontuais explicitados em evidence."
+    },
+    {
+      "id": "media-drift",
+      "name": "Deslocamento suave",
+      "category": "Scroll",
+      "kind": "drift",
+      "evidence": {
+        "status": "não confirmado",
+        "url": "https://www.monks.com/pt",
+        "section": "Vídeo hero e grade",
+        "interaction": "Comparar posições antes/depois de scroll",
+        "observed": "Vídeo muda de quadro e grade possui alturas alternadas. Isso não comprova parallax.",
+        "screenshot": "evidence/02-solutions-scroll.png",
+        "limits": "Parallax opcional original; desativado no mobile por escolha de implementação."
+      },
+      "options": {
+        "duration": 700,
+        "delay": 0,
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "translate": [
+          0,
+          35
+        ],
+        "scale": 1.08,
+        "opacity": 1,
+        "stagger": 65,
+        "trigger": "scroll",
+        "once": true,
+        "responsive": {
+          "mobile": {
+            "maxWidth": 640,
+            "translate": [
+              0,
+              0
+            ],
+            "scale": 1
+          }
+        }
+      },
+      "parameterProvenance": "Todos os parâmetros são decisões originais, salvo os valores pontuais explicitados em evidence."
+    },
+    {
+      "id": "outline-reveal",
+      "name": "Ênfase desenhada",
+      "category": "Texto",
+      "kind": "outline",
+      "evidence": {
+        "status": "observado",
+        "url": "https://www.monks.com/pt/o-que-fazemos",
+        "section": "Hero: palavra oportunidade",
+        "interaction": "Navegar para página institucional",
+        "observed": "Contorno elíptico enfatiza palavra; também presente no hero de solução. Forma final observada; desenho ao longo do tempo não medido.",
+        "screenshot": "evidence/10-about.png",
+        "limits": "Biblioteca revela uma borda CSS original; não reutiliza SVG do site."
+      },
+      "options": {
+        "duration": 850,
+        "delay": 0,
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "translate": [
+          0,
+          0
+        ],
+        "scale": 1,
+        "opacity": 1,
+        "stagger": 65,
+        "trigger": "scroll",
+        "once": true,
+        "responsive": {
+          "mobile": {
+            "maxWidth": 640,
+            "translate": [
+              0,
+              18
+            ],
+            "duration": 500
+          },
+          "tablet": {
+            "maxWidth": 960,
+            "translate": [
+              0,
+              24
+            ]
+          }
+        }
+      },
+      "parameterProvenance": "Todos os parâmetros são decisões originais, salvo os valores pontuais explicitados em evidence."
+    },
+    {
+      "id": "page-enter",
+      "name": "Entrada editorial",
+      "category": "Navegação",
+      "kind": "reveal",
+      "evidence": {
+        "status": "interpretação",
+        "url": "https://www.monks.com/pt/case-studies/influencia-nasce-de-dentro",
+        "section": "Título do estudo de caso",
+        "interaction": "Abrir case a partir de /cases; rolar narrativa",
+        "observed": "Rota e cor mudam; título editorial combina estilos. Algumas navegações exibiram só fundo antes do conteúdo.",
+        "screenshot": "evidence/08-case-study.png",
+        "limits": "Não se afirma transição SPA específica nem motor de animação. Entrada original aplicada pelo consumidor após mudança de rota."
+      },
+      "options": {
+        "duration": 700,
+        "delay": 0,
+        "easing": "cubic-bezier(0.22, 1, 0.36, 1)",
+        "translate": [
+          0,
+          20
+        ],
+        "scale": 1,
+        "opacity": 0,
+        "stagger": 65,
+        "trigger": "load",
+        "once": true,
+        "responsive": {
+          "mobile": {
+            "maxWidth": 640,
+            "translate": [
+              0,
+              18
+            ],
+            "duration": 500
+          },
+          "tablet": {
+            "maxWidth": 960,
+            "translate": [
+              0,
+              24
+            ]
+          }
+        }
+      },
+      "parameterProvenance": "Todos os parâmetros são decisões originais, salvo os valores pontuais explicitados em evidence."
+    }
+  ]
+}

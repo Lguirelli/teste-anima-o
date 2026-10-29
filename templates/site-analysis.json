@@ -1,0 +1,8 @@
+{
+  "site": "https://example.com",
+  "date": "YYYY-MM-DD",
+  "browser": "",
+  "viewports": [],
+  "steps": [{"url":"","section":"","interaction":"","beforeScreenshot":"","afterScreenshot":"","observed":"","estimated":"","unconfirmed":"","measuredValues":[],"timingMethod":null}],
+  "proposedPreset": {"id":"unique-id","name":"Nome","category":"Entrada","kind":"reveal","evidence":{"status":"interpretação","url":"","section":"","interaction":"","observed":"","screenshot":"","limits":""},"options":{"duration":700,"delay":0,"easing":"ease-out","translate":[0,24],"scale":1,"opacity":0,"stagger":60,"trigger":"scroll","responsive":{"mobile":{"maxWidth":640,"translate":[0,12]}}}}
+}

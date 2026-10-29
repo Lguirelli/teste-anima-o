@@ -1,0 +1,10 @@
+/* Original motion utilities. Content remains readable if JavaScript fails. */
+.wml-word{display:inline-block;white-space:pre-wrap}
+.wml-sr{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+.wml-clip{overflow:hidden}
+.wml-button{display:inline-flex;align-items:center;position:relative;border:0;background:transparent;padding:0;cursor:pointer;color:inherit;font:inherit;--wml-circle:48px}
+.wml-button-label,.wml-button-arrow{background:var(--wml-button-bg,#20221e);color:var(--wml-button-fg,#fff);display:inline-grid;place-items:center;min-height:var(--wml-circle);border-radius:100px}
+.wml-button-label{padding:0 24px;position:relative;z-index:1}
+.wml-button-arrow{width:var(--wml-circle);flex-shrink:0}
+.wml-button:focus-visible{outline:3px solid #c74420;outline-offset:5px;border-radius:100px}
+@media(prefers-reduced-motion:reduce){.wml-word{opacity:1!important;transform:none!important}.wml-button *{transition:none!important}}

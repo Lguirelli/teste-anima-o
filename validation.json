@@ -1,0 +1,21 @@
+{
+  "date": "2026-10-29",
+  "automatedNode": {"command":"npm test","passed":10,"failed":0},
+  "sourceInspection": {
+    "browser":"Navegador integrado do Codex",
+    "desktop":"viewport padrão da sessão; capturas iniciais 1242 px de largura",
+    "mobile":{"width":390,"height":844,"physicalDevice":false},
+    "visited":["https://www.monks.com/pt?utm_source=chatgpt.com","https://www.monks.com/pt/solutions/marcas-em-tempo-real","https://www.monks.com/pt/cases","https://www.monks.com/pt/case-studies/influencia-nasce-de-dentro","https://www.monks.com/pt/o-que-fazemos","https://www.monks.com/pt/conectar"],
+    "interactions":["abrir/fechar dropdown","scroll home desktop/mobile","scroll solução e case","abrir/fechar overlay de filtros","abrir/fechar menu mobile","ponteiro sobre círculo do CTA"],
+    "timingTrace":false
+  },
+  "catalogBrowserQA": {
+    "status":"pendente",
+    "reason":"Servidores locais iniciaram em portas alternativas, mas o navegador integrado retornou timeout; tentativa de usar Chrome foi interrompida pelo controle de navegação por não conseguir confirmar a URL atual com segurança.",
+    "behaviorHarness":"tests/browser.html implementado, não executado nesta sessão",
+    "responsiveVisualQA":"CSS e opções responsivas revisados; não validados visualmente no catálogo",
+    "react":"exemplo fornecido e revisado, sem compilação"
+  },
+  "performance":{"fpsMeasured":false,"cpuGpuMeasured":false},
+  "reducedMotion":{"implemented":true,"osEmulationTested":false,"browserHarnessOverrideTestExecuted":false}
+}
